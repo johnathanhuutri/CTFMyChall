@@ -1,8 +1,0 @@
-version: "3"
-services:
-  acceptance:
-    build: .
-    ports:
-      - "9559:9559"
-    expose:
-      - "9559"
