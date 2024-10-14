@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# sudo apt-get -y install libseccomp-dev
+# gcc -s -fno-stack-protector -z execstack -no-pie -fstack-protector-all -o saveme saveme.c -lseccomp
+gcc -s -fno-stack-protector -no-pie -fstack-protector-all -o saveme_t saveme.c -lseccomp
+# gcc -fno-stack-protector -no-pie -fstack-protector-all -o saveme saveme.c -lseccomp
+patchelf --replace-needed libseccomp.so.2 ./libseccomp.so.2.5.1 saveme
+patchelf --replace-needed libc.so.6 ./libc-2.31.so saveme
+patchelf --set-interpreter ./ld-2.31.so saveme

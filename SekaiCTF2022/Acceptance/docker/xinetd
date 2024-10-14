@@ -1,0 +1,11 @@
+service acceptance
+{
+	disable = no
+	type = UNLISTED
+	socket_type = stream
+	protocol = tcp
+	port = 9559
+	wait = no
+	user = me
+	server = /home/me/run.sh
+}

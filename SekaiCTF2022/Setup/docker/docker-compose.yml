@@ -1,0 +1,8 @@
+version: "3"
+services:
+  helloworldsetup:
+    build: .
+    ports:
+      - "9994:9994"
+    expose:
+      - "9994"
